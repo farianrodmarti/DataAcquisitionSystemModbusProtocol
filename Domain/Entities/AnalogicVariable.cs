@@ -21,8 +21,17 @@ namespace Domain.Entities
         #endregion
 
         #region Constructors
-        public AnalogicVariable(string name, VariableType variableType, string code) : base(name, variableType, code)
+        /// <summary>
+        /// Crea una variable analogica
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="variableType"></param>
+        /// <param name="code"></param>
+        /// <param name="samples">Lista de muestras de la variable</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public AnalogicVariable(string name, VariableType variableType, string code, List<double> samples) : base(name, variableType, code)
         {
+            Samples = samples ?? throw new ArgumentNullException(nameof(samples));
         }
         #endregion
     }

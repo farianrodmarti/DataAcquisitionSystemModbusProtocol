@@ -20,7 +20,7 @@ namespace Domain.Abstract
         /// <summary>
         /// Describe el tipo de variable
         /// </summary>
-        public VariableType VariableType { get; }
+        public VariableType VariableType { get; set; }
         /// <summary>
         /// Codigo de la variable que se muestra en los PI&D
         /// </summary>
@@ -35,14 +35,14 @@ namespace Domain.Abstract
         public string ModbusProtocolDirection { get; set; }
         #endregion
 
-        
+
         #region Constructors
         /// <summary>
         /// Crea una variable
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="variableType"></param>
-        /// <param name="code"></param>
+        /// <param name="name">Nombre de la variable</param>
+        /// <param name="variableType">Tipo de variable</param>
+        /// <param name="code">Codigo de la variable que se muestra en los PI&D</param>
         /// <exception cref="ArgumentNullException"></exception>
         protected Variable(string name, VariableType variableType, string code)
         {

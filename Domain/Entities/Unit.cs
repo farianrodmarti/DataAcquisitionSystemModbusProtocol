@@ -37,6 +37,14 @@ namespace Domain.Entities
         #endregion
 
         #region Constructors
+        /// <summary>
+        /// Crea una unidad
+        /// </summary>
+        /// <param name="unitType"></param>
+        /// <param name="manufacturerName"></param>
+        /// <param name="code"></param>
+        /// <param name="areaName"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public Unit(UnitType unitType, string manufacturerName, string code, string areaName)
         {
             UnitType = unitType;

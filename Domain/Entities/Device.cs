@@ -22,7 +22,7 @@ namespace Domain.Abstract
         /// <summary>
         /// Crea un dispositivo Modbus
         /// </summary>
-        /// <param name="iP"></param>
+        /// <param name="iP">Direccion IP del dispsitivo</param>
         /// <exception cref="ArgumentNullException"></exception>
         protected Device(string iP)
         {
