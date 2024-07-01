@@ -15,18 +15,41 @@ namespace Domain.Entities
         /// <summary>
         /// Dispositivo maestro de la red Modbus
         /// </summary>
-        public ModbusMaster ModbusMaster { get;}
+        public ModbusMaster ModbusMasterRed { get;}
+        /// <summary>
+        /// 
+        /// </summary>
+        public string IPMaster { get => ModbusMasterRed.IP;  }
         /// <summary>
         /// Lista de dispositivos esclavos de la red Modbus
         /// </summary>
-        public List<ModbusSlave> Slaves =  new List<ModbusSlave>();
+        public List<ModbusSlave> Slaves;
+
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Metodo para saber los IP de los esclavos
+        /// </summary>
+        /// <returns>Una lista de IP de los esclavos </returns>
+        public List<string> SlavesIP()
+        {
+            List<string> list = new List<string>();
+            foreach (var slave in Slaves)
+                list.Add(slave.IP);
+            return list;
+        }
+
         #endregion
 
         #region Constructors
         public RedModbus(ModbusMaster modbusMaster, List<ModbusSlave> slaves)
         {
-            ModbusMaster = modbusMaster ?? throw new ArgumentNullException(nameof(modbusMaster));
+            ModbusMasterRed = modbusMaster ?? throw new ArgumentNullException(nameof(modbusMaster));
             Slaves = slaves ?? throw new ArgumentNullException(nameof(slaves));
+
+            foreach (var slave in slaves) ;
+
         }
         #endregion
     }

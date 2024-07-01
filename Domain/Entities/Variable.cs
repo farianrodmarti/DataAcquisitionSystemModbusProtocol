@@ -13,12 +13,13 @@ namespace Domain.Abstract
     public abstract class Variable
     {
         #region Properties
+        
         /// <summary>
-        /// Nombre de la variable
+        /// Nombre de la variable.
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// Describe el tipo de variable
+        /// Describe el tipo de variable.
         /// </summary>
         public VariableType VariableType { get; set; }
         /// <summary>
@@ -33,10 +34,12 @@ namespace Domain.Abstract
         /// Direccion de la variable en el protocolo Modbus
         /// </summary>
         public string ModbusProtocolDirection { get; set; }
+
         #endregion
 
 
         #region Constructors
+
         /// <summary>
         /// Crea una variable
         /// </summary>
@@ -50,6 +53,7 @@ namespace Domain.Abstract
             VariableType = variableType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
         }
+
         #endregion
 
     }

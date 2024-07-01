@@ -14,6 +14,7 @@ namespace Domain.Entities
     public class AnalogicVariable :Variable
     {
         #region Properties
+        
         /// <summary>
         /// Lista de muestras
         /// </summary>
