@@ -19,9 +19,11 @@ namespace Domain.Entities
         /// Lista de muestras
         /// </summary>
         public List<double> Samples;
+
         #endregion
 
         #region Constructors
+
         /// <summary>
         /// Crea una variable analogica
         /// </summary>
@@ -30,10 +32,11 @@ namespace Domain.Entities
         /// <param name="code"></param>
         /// <param name="samples">Lista de muestras de la variable</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public AnalogicVariable(string name, VariableType variableType, string code, List<double> samples) : base(name, variableType, code)
+        public AnalogicVariable(string name, VariableType variableType, string code, List<double> samples, string modbusProtocolDirection) : base(name, variableType, code, modbusProtocolDirection)
         {
             Samples = samples ?? throw new ArgumentNullException(nameof(samples));
         }
+
         #endregion
     }
 }

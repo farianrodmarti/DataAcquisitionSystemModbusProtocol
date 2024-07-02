@@ -15,6 +15,10 @@ namespace Domain.Entities
         #region Properties
         #endregion
 
+        /// <summary>
+        /// Crea un maestro Modbus
+        /// </summary>
+        /// <param name="iP">Direccio IP del dispositivo maestro Modbus</param>
         #region Constructors
         public ModbusMaster(string iP) : base(iP)
         {

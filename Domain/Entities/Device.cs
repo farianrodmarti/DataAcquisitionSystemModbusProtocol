@@ -12,13 +12,16 @@ namespace Domain.Abstract
     public abstract class Device
     {
         #region Properties
+
         /// <summary>
         /// Direccion IP del dispsitivo
         /// </summary>
         public string IP;
+
         #endregion
 
         #region Constructors
+
         /// <summary>
         /// Crea un dispositivo Modbus
         /// </summary>
@@ -28,6 +31,7 @@ namespace Domain.Abstract
         {
             IP = iP ?? throw new ArgumentNullException(nameof(iP));
         }
+
         #endregion
     }
 }

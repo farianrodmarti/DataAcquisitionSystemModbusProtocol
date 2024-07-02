@@ -13,16 +13,26 @@ namespace Domain.Entities
     public class ModbusSlave :Device
     {
         #region Properties
+
         /// <summary>
         /// Lista de variables que se publican en el dispositivo esclavo
         /// </summary>
         public List<Variable> Variables;
+
         #endregion
 
         #region Constructors
-        public ModbusSlave(string iP) : base(iP)
+
+        /// <summary>
+        /// Crea un esclavo Modbus
+        /// </summary>
+        /// <param name="iP">Direccion IP del dispositivo esclavo Modbus</param>
+        /// <param name="variables">Lista de variables que se publican en el dispositivo esclavo</param>
+        public ModbusSlave(string iP, List<Variable> variables) : base(iP)
         {
+            Variables = variables;
         }
+
         #endregion
     }
 }

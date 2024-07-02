@@ -14,13 +14,16 @@ namespace Domain.Entities
     public class DigitalVariable :Variable
     {
         #region Properties
+
         /// <summary>
         /// Lista de muestras
         /// </summary>
         public List<ushort> Samples;
+
         #endregion
 
         #region Constructors
+
         /// <summary>
         /// Crea una variable digital
         /// </summary>
@@ -29,12 +32,13 @@ namespace Domain.Entities
         /// <param name="code"></param>
         /// <param name="samples">Lista de muestras de la variable</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public DigitalVariable(string name, VariableType variableType, string code, List<ushort> samples) : base(name, variableType, code)
+        public DigitalVariable(string name, VariableType variableType, string code, List<ushort> samples, string modbusProtocolDirection) : base(name, variableType, code, modbusProtocolDirection)
         {
             if (samples.All(x => x > 1024))
                 throw new ArgumentNullException(nameof(samples));
             Samples = samples ?? throw new ArgumentNullException(nameof(samples));
         }
+        
         #endregion
     }
 }

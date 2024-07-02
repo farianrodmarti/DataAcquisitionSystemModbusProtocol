@@ -47,11 +47,12 @@ namespace Domain.Abstract
         /// <param name="variableType">Tipo de variable</param>
         /// <param name="code">Codigo de la variable que se muestra en los PI&D</param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected Variable(string name, VariableType variableType, string code)
+        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
+            ModbusProtocolDirection = modbusProtocolDirection;
         }
 
         #endregion
