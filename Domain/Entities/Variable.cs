@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Abstract
+namespace Domain.Entities
 {
     /// <summary>
     /// Modela una variable

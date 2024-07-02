@@ -1,5 +1,4 @@
-﻿using Domain.Abstract;
-using Domain.Type;
+﻿using Domain.Type;
 using System;
 using System.Collections.Generic;
 using System.Linq;
