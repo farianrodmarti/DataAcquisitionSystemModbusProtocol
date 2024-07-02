@@ -1,19 +1,20 @@
-﻿using Domain.Type;
+﻿using Domain.Entities.Common;
+using Domain.Entities.Type;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Variables
 {
     /// <summary>
     /// Modela una variable
     /// </summary>
-    public abstract class Variable
+    public abstract class Variable : Entity
     {
         #region Properties
-        
+
         /// <summary>
         /// Nombre de la variable.
         /// </summary>
@@ -47,7 +48,7 @@ namespace Domain.Entities
         /// <param name="variableType">Tipo de variable</param>
         /// <param name="code">Codigo de la variable que se muestra en los PI&D</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection)
+        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection, Guid id) : base(id)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;

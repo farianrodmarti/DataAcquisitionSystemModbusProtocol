@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities.Variables;
 
-namespace Domain.Entities
+namespace Domain.Entities.Devices
 {
     /// <summary>
     /// Modela un dispositivo esclavo de Modbus
     /// </summary>
-    public class ModbusSlave :Device
+    public class ModbusSlave : Device
     {
         #region Properties
 
@@ -27,7 +28,7 @@ namespace Domain.Entities
         /// </summary>
         /// <param name="iP">Direccion IP del dispositivo esclavo Modbus</param>
         /// <param name="variables">Lista de variables que se publican en el dispositivo esclavo</param>
-        public ModbusSlave(string iP, List<Variable> variables) : base(iP)
+        public ModbusSlave(string iP, List<Variable> variables, Guid id) : base(iP, id)
         {
             Variables = variables;
         }

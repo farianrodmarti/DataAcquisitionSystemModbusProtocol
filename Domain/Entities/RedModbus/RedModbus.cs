@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities.Common;
+using Domain.Entities.Devices;
 
-namespace Domain.Entities
+namespace Domain.Entities.RedModbus
 {
     /// <summary>
     /// Modela una red Modbus
     /// </summary>
-    public class RedModbus
+    public class RedModbus : Entity
     {
         #region Properties
 
@@ -41,7 +43,7 @@ namespace Domain.Entities
         /// <summary>
         /// Metodo para obtener la direccion IP del maestro Modbus
         /// </summary>
-        public string IPMaster { get => ModbusMasterRed.IP;  }
+        public string IPMaster { get => ModbusMasterRed.IP; }
         #endregion
 
         #region Constructors
@@ -51,7 +53,7 @@ namespace Domain.Entities
         /// <param name="modbusMaster">Dispositivo meastro Modbus de la red Modbus</param>
         /// <param name="slaves">Lista de dispositivos esclavos Modbus de la red Modbus</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public RedModbus(ModbusMaster modbusMaster, List<ModbusSlave> slaves)
+        public RedModbus(ModbusMaster modbusMaster, List<ModbusSlave> slaves, Guid id) : base(id)
         {
             ModbusMasterRed = modbusMaster ?? throw new ArgumentNullException(nameof(modbusMaster));
             Slaves = slaves ?? throw new ArgumentNullException(nameof(slaves));

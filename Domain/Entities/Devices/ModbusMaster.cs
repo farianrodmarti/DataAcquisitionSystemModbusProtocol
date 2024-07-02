@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Devices
 {
     /// <summary>
     /// Modela un dispositivo maestro de Modbus
@@ -19,7 +19,7 @@ namespace Domain.Entities
         /// </summary>
         /// <param name="iP">Direccio IP del dispositivo maestro Modbus</param>
         #region Constructors
-        public ModbusMaster(string iP) : base(iP)
+        public ModbusMaster(string iP, Guid id) : base(iP, id)
         {
         }
         #endregion

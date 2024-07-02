@@ -1,17 +1,18 @@
-﻿using Domain.Abstract;
-using Domain.Type;
+﻿using Domain.Entities.Common;
+using Domain.Entities.Type;
+using Domain.Entities.Variables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Unit
 {
     /// <summary>
     /// Modela una unidad
     /// </summary>
-    public class Unit
+    public class Unit : Entity
     {
         #region Properties
 
@@ -48,7 +49,7 @@ namespace Domain.Entities
         /// <param name="areaName">Nombre del area de la unidad</param>
         /// <param name="variables">Lista de variables asociadas a la unidad</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Unit(UnitType unitType, string manufacturerName, string code, string areaName, List<Variable> variables)
+        public Unit(UnitType unitType, string manufacturerName, string code, string areaName, List<Variable> variables, Guid id) : base(id)
         {
             UnitType = unitType;
             ManufacturerName = manufacturerName ?? throw new ArgumentNullException(nameof(manufacturerName));

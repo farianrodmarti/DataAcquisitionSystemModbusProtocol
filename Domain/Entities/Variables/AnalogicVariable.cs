@@ -1,19 +1,19 @@
-﻿using Domain.Type;
+﻿using Domain.Entities.Type;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Entities.Variables
 {
     /// <summary>
     /// Modela una variable analogica
     /// </summary>
-    public class AnalogicVariable :Variable
+    public class AnalogicVariable : Variable
     {
         #region Properties
-        
+
         /// <summary>
         /// Lista de muestras
         /// </summary>
@@ -31,7 +31,7 @@ namespace Domain.Entities
         /// <param name="code"></param>
         /// <param name="samples">Lista de muestras de la variable</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public AnalogicVariable(string name, VariableType variableType, string code, List<double> samples, string modbusProtocolDirection) : base(name, variableType, code, modbusProtocolDirection)
+        public AnalogicVariable(string name, VariableType variableType, string code, List<double> samples, string modbusProtocolDirection, Guid id) : base(name, variableType, code, modbusProtocolDirection, id)
         {
             Samples = samples ?? throw new ArgumentNullException(nameof(samples));
         }
