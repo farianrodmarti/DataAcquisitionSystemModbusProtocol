@@ -28,7 +28,7 @@ namespace Domain.Entities.Devices
         /// </summary>
         /// <param name="iP">Direccion IP del dispositivo esclavo Modbus</param>
         /// <param name="variables">Lista de variables que se publican en el dispositivo esclavo</param>
-        public ModbusSlave(string iP, List<Variable> variables, Guid id) : base(iP, id)
+        public ModbusSlave(string iP, List<Variable> variables, Guid redModbusId, Guid id) : base(iP, redModbusId, id)
         {
             Variables = variables;
         }

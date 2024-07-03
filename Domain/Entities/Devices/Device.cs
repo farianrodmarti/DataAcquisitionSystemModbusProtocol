@@ -8,29 +8,34 @@ using System.Threading.Tasks;
 namespace Domain.Entities.Devices
 {
     /// <summary>
-    /// Modela un dispositivo
+    /// Modela un dispositivo.
     /// </summary>
     public abstract class Device : Entity
     {
         #region Properties
 
         /// <summary>
-        /// Direccion IP del dispsitivo
+        /// Direccion IP del dispsitivo.
         /// </summary>
         public string IP;
+        /// <summary>
+        /// ID de la red Modbus a la que pertenece el dispositivo.
+        /// </summary>
+        public Guid RedModbusId { get; set; }
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Crea un dispositivo Modbus
+        /// Crea un dispositivo Modbus.
         /// </summary>
-        /// <param name="iP">Direccion IP del dispsitivo</param>
+        /// <param name="iP">Direccion IP del dispsitivo.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected Device(string iP, Guid id) : base(id)
+        protected Device(string iP, Guid redMosbusId, Guid id) : base(id)
         {
             IP = iP ?? throw new ArgumentNullException(nameof(iP));
+            RedModbusId = redMosbusId;
         }
 
         #endregion

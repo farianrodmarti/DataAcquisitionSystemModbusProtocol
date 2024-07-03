@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.Common;
 using Domain.Entities.Type;
+using Domain.Entities.Samples;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,14 @@ namespace Domain.Entities.Variables
         /// Direccion de la variable en el protocolo Modbus
         /// </summary>
         public string ModbusProtocolDirection { get; set; }
+        /// <summary>
+        /// Muestra de la variable
+        /// </summary>
+        public List<Sample> Samples { get; set; }
+        /// <summary>
+        /// ID de la unidad a la que pertenece la variable
+        /// </summary>
+        public Guid UnitId { get; set; }
 
         #endregion
 
@@ -48,12 +57,14 @@ namespace Domain.Entities.Variables
         /// <param name="variableType">Tipo de variable</param>
         /// <param name="code">Codigo de la variable que se muestra en los PI&D</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection, Guid id) : base(id)
+        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId ,Guid id) : base(id)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
             ModbusProtocolDirection = modbusProtocolDirection;
+            Samples = samples;
+            UnitId = unitId;
         }
 
         #endregion

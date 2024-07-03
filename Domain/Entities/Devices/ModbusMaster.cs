@@ -12,6 +12,7 @@ namespace Domain.Entities.Devices
     public class ModbusMaster : Device
     {
         #region Properties
+
         #endregion
 
         /// <summary>
@@ -19,7 +20,7 @@ namespace Domain.Entities.Devices
         /// </summary>
         /// <param name="iP">Direccio IP del dispositivo maestro Modbus</param>
         #region Constructors
-        public ModbusMaster(string iP, Guid id) : base(iP, id)
+        public ModbusMaster(string iP, Guid redModbusId, Guid id) : base(iP, redModbusId, id)
         {
         }
         #endregion
