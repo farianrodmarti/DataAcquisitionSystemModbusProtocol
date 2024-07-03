@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Unit
+namespace Domain.Entities.Units
 {
     /// <summary>
     /// Modela una unidad
@@ -57,6 +57,12 @@ namespace Domain.Entities.Unit
             AreaName = areaName ?? throw new ArgumentNullException(nameof(areaName));
             Variables = variables ?? throw new ArgumentNullException();
         }
+
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected Unit() { }
+
         #endregion
 
     }

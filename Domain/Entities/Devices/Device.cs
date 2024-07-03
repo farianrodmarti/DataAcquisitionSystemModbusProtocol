@@ -38,6 +38,16 @@ namespace Domain.Entities.Devices
             RedModbusId = redMosbusId;
         }
 
+        /// <summary>
+        /// Requerido por EntityFramework.
+        /// </summary>
+        protected Device(){}
+
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected Device(Guid id) : base(id) { }
+
         #endregion
     }
 }

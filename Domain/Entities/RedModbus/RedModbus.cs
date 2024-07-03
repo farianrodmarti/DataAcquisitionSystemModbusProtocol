@@ -48,10 +48,10 @@ namespace Domain.Entities.RedModbus
 
         #region Constructors
         /// <summary>
-        /// Crea una red Modbus
+        /// Crea una red Modbus.
         /// </summary>
-        /// <param name="modbusMaster">Dispositivo meastro Modbus de la red Modbus</param>
-        /// <param name="slaves">Lista de dispositivos esclavos Modbus de la red Modbus</param>
+        /// <param name="modbusMaster">Dispositivo meastro Modbus de la red Modbus.</param>
+        /// <param name="slaves">Lista de dispositivos esclavos Modbus de la red Modbus.</param>
         /// <exception cref="ArgumentNullException"></exception>
         public RedModbus(ModbusMaster modbusMaster, List<ModbusSlave> slaves, Guid id) : base(id)
         {
@@ -59,6 +59,12 @@ namespace Domain.Entities.RedModbus
             Slaves = slaves ?? throw new ArgumentNullException(nameof(slaves));
 
         }
+
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected RedModbus() { }
+
         #endregion
     }
 }

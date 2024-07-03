@@ -33,6 +33,11 @@ namespace Domain.Entities.Devices
             Variables = variables;
         }
 
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected ModbusSlave() { }
+
         #endregion
     }
 }
