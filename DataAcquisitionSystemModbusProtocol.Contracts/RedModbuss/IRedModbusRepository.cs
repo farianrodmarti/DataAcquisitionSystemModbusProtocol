@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcquisitionSystemModbusProtocol.Contracts.Devices
+namespace DataAcquisitionSystemModbusProtocol.Contracts.RedModbuss
 {
     /// <summary>
     /// Describe las funcionalidades necesarias para dar persistencia a la red Modbus.

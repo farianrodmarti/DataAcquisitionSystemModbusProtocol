@@ -15,6 +15,8 @@ using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurat
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.Variables;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.RedModbuss;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.Units;
+using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.Samples;
+using Domain.Entities.Samples;
 
 namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context
 {
@@ -41,6 +43,10 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context
         /// Tabla de Unidades
         /// </summary>
         public DbSet<Unit> Units { get; set; }
+        /// <summary>
+        /// Tabla de muestras
+        /// </summary>
+        public DbSet<Sample> Samples { get; set; }
 
         #endregion
 
@@ -70,6 +76,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context
             modelBuilder.ApplyConfiguration(new AnalogicVariableEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new RedModbusEntityTypeConfigurationBase());
             modelBuilder.ApplyConfiguration(new UnitEntityTypeConfigurationBase());
+            modelBuilder.ApplyConfiguration(new SampleEntityTypeConfiguration());
 
         }
 

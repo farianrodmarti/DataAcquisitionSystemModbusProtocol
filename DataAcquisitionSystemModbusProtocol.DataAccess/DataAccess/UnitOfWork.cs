@@ -7,7 +7,7 @@ using DataAcquisitionSystemModbusProtocol.Contracts;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations
+namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess
 {
     /// <summary>
     /// Implementación de <see cref="IUnitOfWork"/>.
