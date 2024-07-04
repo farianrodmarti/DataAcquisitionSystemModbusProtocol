@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities.RedModbuss;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Domain.Entities.Devices
         /// </summary>
         /// <param name="iP">Direccio IP del dispositivo maestro Modbus</param>
         #region Constructors
-        public ModbusMaster(string iP, Guid redModbusId, Guid id) : base(iP, redModbusId, id){ }
+        public ModbusMaster(string iP, Guid redModbusId, RedModbus redModbus, Guid id) : base(iP, redModbusId, redModbus, id){ }
 
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.

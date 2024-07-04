@@ -1,6 +1,6 @@
 ﻿using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.Common;
 using Domain.Entities.Devices;
-using Domain.Entities.RedModbus;
+using Domain.Entities.RedModbuss;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

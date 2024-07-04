@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities.Devices;
 
 namespace Domain.Entities.Variables
 {
@@ -49,6 +50,15 @@ namespace Domain.Entities.Variables
         /// Unidad a la que pertenece la variable.
         /// </summary>
         public Unit Unit { get; set; }
+        /// <summary>
+        /// Esclavo que publica la variable.
+        /// </summary>
+        public ModbusSlave ModbusSlave { get; set; }
+        /// <summary>
+        /// ID del esclavo Modbus que publica las variables.
+        /// </summary>
+        public Guid ModbusSlaveId { get; set; }
+
 
         #endregion
 
@@ -62,7 +72,7 @@ namespace Domain.Entities.Variables
         /// <param name="variableType">Tipo de variable.</param>
         /// <param name="code">Codigo de la variable que se muestra en los PI&D.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId, Unit unit ,Guid id) : base(id)
+        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId, Unit unit , ModbusSlave modbusSlave, Guid modbusSlaveId, Guid id) : base(id)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;
@@ -71,6 +81,8 @@ namespace Domain.Entities.Variables
             Samples = samples;
             UnitId = unitId;
             Unit = unit;
+            ModbusSlave = modbusSlave;
+            ModbusSlaveId = modbusSlaveId;
         }
 
         /// <summary>

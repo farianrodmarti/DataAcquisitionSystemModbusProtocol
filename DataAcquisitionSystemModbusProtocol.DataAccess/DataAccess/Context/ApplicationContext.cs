@@ -1,6 +1,6 @@
 ﻿using Domain.Entities.Devices;
-using Domain.Entities.RedModbus;
-using Domain.Entities.Unit;
+using Domain.Entities.RedModbuss;
+using Domain.Entities.Units;
 using Domain.Entities.Variables;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;

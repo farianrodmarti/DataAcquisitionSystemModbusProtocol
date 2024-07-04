@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Common;
+using Domain.Entities.RedModbuss;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,10 @@ namespace Domain.Entities.Devices
         /// ID de la red Modbus a la que pertenece el dispositivo.
         /// </summary>
         public Guid RedModbusId { get; set; }
+        /// <summary>
+        /// Red Modbus a la que pertenece el dispositivo
+        /// </summary>
+        public RedModbus RedModbus { get; set; }
 
         #endregion
 
@@ -32,10 +37,11 @@ namespace Domain.Entities.Devices
         /// </summary>
         /// <param name="iP">Direccion IP del dispsitivo.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected Device(string iP, Guid redMosbusId, Guid id) : base(id)
+        protected Device(string iP, Guid redMosbusId, RedModbus redModbus, Guid id) : base(id)
         {
             IP = iP ?? throw new ArgumentNullException(nameof(iP));
             RedModbusId = redMosbusId;
+            RedModbus = redModbus;
         }
 
         /// <summary>

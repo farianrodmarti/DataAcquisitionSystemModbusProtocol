@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Samples;
+﻿using Domain.Entities.Devices;
+using Domain.Entities.Samples;
 using Domain.Entities.Type;
 using Domain.Entities.Units;
 using System;
@@ -27,7 +28,7 @@ namespace Domain.Entities.Variables
         /// <param name="code"></param>
         /// <param name="samples">Lista de muestras de la variable</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public AnalogicVariable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId, Unit unit, Guid id) : base(name, variableType, code, modbusProtocolDirection, samples, unitId, unit, id)
+        public AnalogicVariable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId, Unit unit, ModbusSlave modbusSlave, Guid modbusSlaveId, Guid id) : base(name, variableType, code, modbusProtocolDirection, samples, unitId, unit, modbusSlave, modbusSlaveId, id)
         {            
         }
 

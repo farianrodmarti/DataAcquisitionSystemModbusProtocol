@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Domain.Entities.Common;
 using Domain.Entities.Devices;
 
-namespace Domain.Entities.RedModbus
+namespace Domain.Entities.RedModbuss
 {
     /// <summary>
     /// Modela una red Modbus
