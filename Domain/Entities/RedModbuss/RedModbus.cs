@@ -26,6 +26,19 @@ namespace Domain.Entities.RedModbuss
 
         #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Crea una red Modbus.
+        /// </summary>
+        public RedModbus(Guid id) : base(id){}
+
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        protected RedModbus() { }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -44,27 +57,29 @@ namespace Domain.Entities.RedModbuss
         /// Metodo para obtener la direccion IP del maestro Modbus
         /// </summary>
         public string IPMaster { get => ModbusMasterRed.IP; }
-        #endregion
 
-        #region Constructors
-        /// <summary>
-        /// Crea una red Modbus.
-        /// </summary>
-        /// <param name="modbusMaster">Dispositivo meastro Modbus de la red Modbus.</param>
-        /// <param name="slaves">Lista de dispositivos esclavos Modbus de la red Modbus.</param>
-        /// <exception cref="ArgumentNullException"></exception>
-        public RedModbus(ModbusMaster modbusMaster, List<ModbusSlave> slaves, Guid id) : base(id)
+        public void AddModbusMaster(ModbusMaster modbusMaster)
         {
-            ModbusMasterRed = modbusMaster ?? throw new ArgumentNullException(nameof(modbusMaster));
-            Slaves = slaves ?? throw new ArgumentNullException(nameof(slaves));
-
+            if (ModbusMasterRed == null)
+                ModbusMasterRed = modbusMaster;
+            else
+                throw new InvalidOperationException("This red already have a ModbusMaster");
         }
 
-        /// <summary>
-        /// Requerido por EntityFrameworkCore para migraciones.
-        /// </summary>
-        protected RedModbus() { }
+        public void AddModbusSlave(ModbusSlave modbusSlave)
+        {
+            Slaves.Add(modbusSlave);
+        }
+
+        public void AddModbusSlaveList(List<ModbusSlave> slades)
+        {
+            foreach (var slave in slades)
+                Slaves.Add(slave);
+        }
+
 
         #endregion
+
+
     }
 }

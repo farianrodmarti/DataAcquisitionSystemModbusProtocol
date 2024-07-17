@@ -44,5 +44,7 @@ namespace DataAcquisitionSystemModbusProtocol.Contracts.Variables
         /// </summary>
         /// <param name="variable">Variable a eliminar.</param>
         void DeleteVariable(Variable variable);
+
+
     }
 }

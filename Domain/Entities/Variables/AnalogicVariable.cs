@@ -26,9 +26,7 @@ namespace Domain.Entities.Variables
         /// <param name="name"></param>
         /// <param name="variableType"></param>
         /// <param name="code"></param>
-        /// <param name="samples">Lista de muestras de la variable</param>
-        /// <exception cref="ArgumentNullException"></exception>
-        public AnalogicVariable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId, Unit unit, ModbusSlave modbusSlave, Guid modbusSlaveId, Guid id) : base(name, variableType, code, modbusProtocolDirection, samples, unitId, unit, modbusSlave, modbusSlaveId, id)
+        public AnalogicVariable(string name, VariableType variableType, string code, Guid id) : base(name, variableType, code, id)
         {            
         }
 
@@ -36,6 +34,20 @@ namespace Domain.Entities.Variables
         /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
         protected AnalogicVariable() { }
+
+        #endregion
+
+        #region Methods
+
+        public override void AddSample(Sample sample)
+        {
+            base.AddSample(sample);
+        }
+
+        public override void AddSampleList(List<Sample> samples)
+        {
+            base.AddSampleList(samples);
+        }
 
         #endregion
     }

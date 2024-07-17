@@ -36,12 +36,10 @@ namespace Domain.Entities.Samples
 
         #region Constructors
 
-        public Sample(double sampleValue, Guid variableId, DateTime sampleDateTime, Variable variable)
+        public Sample(double sampleValue, DateTime sampleDateTime)
         {
             SampleValue = sampleValue;
-            VariableId = variableId;
             SampleDateTime = sampleDateTime;
-            Variable = variable;
         }
 
         /// <summary>

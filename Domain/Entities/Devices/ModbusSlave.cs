@@ -28,16 +28,21 @@ namespace Domain.Entities.Devices
         /// Crea un esclavo Modbus
         /// </summary>
         /// <param name="iP">Direccion IP del dispositivo esclavo Modbus</param>
-        /// <param name="variables">Lista de variables que se publican en el dispositivo esclavo</param>
-        public ModbusSlave(string iP, List<Variable> variables, Guid redModbusId, RedModbus redModbus, Guid id) : base(iP, redModbusId, redModbus, id)
-        {
-            Variables = variables;
-        }
+        public ModbusSlave(string iP, Guid id) : base(iP, id){}
 
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
         protected ModbusSlave() { }
+
+        #endregion
+
+        #region Methods
+
+        public void AddVariable( Variable variable)
+        {
+            Variables.Add(variable);
+        }
 
         #endregion
     }

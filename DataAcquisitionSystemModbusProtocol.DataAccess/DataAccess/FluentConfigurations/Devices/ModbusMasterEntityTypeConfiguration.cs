@@ -15,7 +15,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
         {
             builder.ToTable("ModbusMaster");
             builder.HasBaseType(typeof(Device));
-            builder.HasOne(x => x.RedModbus).WithOne().HasForeignKey(x => x.RedModbusId);
+            builder.HasOne(x => x.RedModbus).WithMany().HasForeignKey(x => x.RedModbusId);
         }
     }
 }

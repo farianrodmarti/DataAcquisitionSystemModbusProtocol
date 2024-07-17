@@ -59,9 +59,7 @@ namespace Domain.Entities.Variables
         /// </summary>
         public Guid ModbusSlaveId { get; set; }
 
-
         #endregion
-
 
         #region Constructors
 
@@ -72,23 +70,25 @@ namespace Domain.Entities.Variables
         /// <param name="variableType">Tipo de variable.</param>
         /// <param name="code">Codigo de la variable que se muestra en los PI&D.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Variable(string name, VariableType variableType, string code, string modbusProtocolDirection, List<Sample> samples, Guid unitId, Unit unit , ModbusSlave modbusSlave, Guid modbusSlaveId, Guid id) : base(id)
+        public Variable(string name, VariableType variableType, string code, Guid id) : base(id)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
-            ModbusProtocolDirection = modbusProtocolDirection;
-            Samples = samples;
-            UnitId = unitId;
-            Unit = unit;
-            ModbusSlave = modbusSlave;
-            ModbusSlaveId = modbusSlaveId;
         }
 
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
         protected Variable() { }
+
+        #endregion
+
+        #region Methods
+
+        public virtual void AddSample( Sample sample){}
+
+        public virtual void AddSampleList(List<Sample> samples) { }
 
         #endregion
 

@@ -16,7 +16,9 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
         {
             builder.ToTable("Sample");
             base.Configure(builder);
-            builder.HasOne(x => x.Variable).WithMany().HasForeignKey(x => x.VariableId);
+            builder.HasOne(x => x.Variable).WithMany().HasForeignKey(x => x.Variable);
+            //builder.HasKey(nameof(Sample.VariableId), nameof(Sample.SampleDateTime));
+
         }
     }
 }

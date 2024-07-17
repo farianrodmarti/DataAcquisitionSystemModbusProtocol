@@ -38,5 +38,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories
         {
             _context.Variables.Update(variable);
         }
+
+
     }
 }
