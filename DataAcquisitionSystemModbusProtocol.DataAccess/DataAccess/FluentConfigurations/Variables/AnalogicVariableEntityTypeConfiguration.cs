@@ -14,7 +14,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<AnalogicVariable> builder)
         {
-            builder.ToTable("AnalogicVaruable");
+            builder.ToTable("AnalogicVaruables");
             builder.HasBaseType(typeof(Variable));
         }
     }

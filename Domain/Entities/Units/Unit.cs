@@ -44,18 +44,12 @@ namespace Domain.Entities.Units
         /// Crea una unidad
         /// </summary>
         /// <param name="unitType">Tipo de unidad</param>
-        /// <param name="manufacturerName">Nombre del fabricante</param>
         /// <param name="code">Codigo de la unidad</param>
-        /// <param name="areaName">Nombre del area de la unidad</param>
-        /// <param name="variables">Lista de variables asociadas a la unidad</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Unit(UnitType unitType, string manufacturerName, string code, string areaName, List<Variable> variables, Guid id) : base(id)
+        public Unit(UnitType unitType, string code, Guid id) : base(id)
         {
             UnitType = unitType;
-            ManufacturerName = manufacturerName ?? throw new ArgumentNullException(nameof(manufacturerName));
             Code = code ?? throw new ArgumentNullException(nameof(code));
-            AreaName = areaName ?? throw new ArgumentNullException(nameof(areaName));
-            Variables = variables ?? throw new ArgumentNullException();
         }
 
         /// <summary>

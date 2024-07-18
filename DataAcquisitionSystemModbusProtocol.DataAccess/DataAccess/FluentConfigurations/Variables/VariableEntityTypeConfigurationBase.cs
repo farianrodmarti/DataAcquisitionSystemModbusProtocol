@@ -14,7 +14,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public override void Configure(EntityTypeBuilder<Variable> builder)
         {
-            builder.ToTable("Variable");
+            builder.ToTable("Variables");
             base.Configure(builder);
             builder.HasOne(x => x.Unit).WithMany().HasForeignKey(x => x.UnitId);
             builder.HasOne(x => x.ModbusSlave).WithMany().HasForeignKey(x => x.ModbusSlaveId);

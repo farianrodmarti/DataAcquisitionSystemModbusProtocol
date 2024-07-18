@@ -13,7 +13,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<DigitalVariable> builder)
         {
-            builder.ToTable("DigitalVariable");
+            builder.ToTable("DigitalVariables");
             builder.HasBaseType(typeof(Variable));
         }
     }

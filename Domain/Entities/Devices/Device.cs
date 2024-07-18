@@ -22,11 +22,11 @@ namespace Domain.Entities.Devices
         /// <summary>
         /// ID de la red Modbus a la que pertenece el dispositivo.
         /// </summary>
-        public Guid RedModbusId { get; set; }
+        //public Guid RedModbusId { get; set; }
         /// <summary>
         /// Red Modbus a la que pertenece el dispositivo
         /// </summary>
-        public RedModbus RedModbus { get; set; }
+        //public RedModbus RedModbus { get; set; }
 
         #endregion
 

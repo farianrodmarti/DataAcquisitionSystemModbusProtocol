@@ -19,6 +19,10 @@ namespace Domain.Entities.RedModbuss
         /// Dispositivo maestro de la red Modbus
         /// </summary>
         public ModbusMaster ModbusMasterRed { get; set; }
+
+        public Guid ModbusMasterId { get; set; }
+
+
         /// <summary>
         /// Lista de dispositivos esclavos de la red Modbus
         /// </summary>

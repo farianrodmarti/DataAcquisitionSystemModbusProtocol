@@ -49,11 +49,11 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// Unidad a la que pertenece la variable.
         /// </summary>
-        public Unit Unit { get; set; }
+        public virtual Unit Unit { get; set; }
         /// <summary>
         /// Esclavo que publica la variable.
         /// </summary>
-        public ModbusSlave ModbusSlave { get; set; }
+        public virtual ModbusSlave ModbusSlave { get; set; }
         /// <summary>
         /// ID del esclavo Modbus que publica las variables.
         /// </summary>

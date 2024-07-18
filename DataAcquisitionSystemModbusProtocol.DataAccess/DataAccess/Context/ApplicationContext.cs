@@ -4,13 +4,6 @@ using Domain.Entities.Units;
 using Domain.Entities.Variables;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.Devices;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.Variables;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfigurations.RedModbuss;
@@ -50,6 +43,15 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context
 
         #endregion
 
+        /// <summary>
+        /// Requerido por EntityFrameworkCore para migraciones.
+        /// </summary>
+        public ApplicationContext() { }
+
+        /// <summary>
+        /// Inicializa un objeto <see cref="ApplicationContext"/>.
+        /// </summary>
+        /// <param name="connectionString">Cadena de conexión.</param>
         public ApplicationContext(string connectionString) : base(GetOptions(connectionString)) { }
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Devices;
+using Domain.Entities.RedModbuss;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -13,9 +14,8 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<ModbusMaster> builder)
         {
-            builder.ToTable("ModbusMaster");
+            builder.ToTable("ModbusMasters");
             builder.HasBaseType(typeof(Device));
-            builder.HasOne(x => x.RedModbus).WithMany().HasForeignKey(x => x.RedModbusId);
         }
     }
 }

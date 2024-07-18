@@ -18,7 +18,10 @@ namespace Domain.Entities.Devices
         /// <summary>
         /// Lista de variables que se publican en el dispositivo esclavo
         /// </summary>
-        public List<Variable> Variables;
+        public List<Variable> Variables { get; set; }
+
+        public Guid RedModbusId { get; set; }
+        public virtual RedModbus RedModbus { get; set; }
 
         #endregion
 

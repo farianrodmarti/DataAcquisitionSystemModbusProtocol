@@ -15,7 +15,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public override void Configure(EntityTypeBuilder<Device> builder)
         {
-            builder.ToTable("Device");
+            builder.ToTable("Devices");
             base.Configure(builder);
         }
     }
