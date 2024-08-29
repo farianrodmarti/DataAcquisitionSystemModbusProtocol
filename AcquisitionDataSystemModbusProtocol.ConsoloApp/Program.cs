@@ -13,7 +13,9 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("f");
+            /*
+             * 
+            Console.WriteLine("Iniciando base de datos");
 
             //Borrando BD en caso de existir una antigua,
             // esto se hace pq para que este programa en particular
@@ -39,10 +41,9 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
             Unit unit = new Unit(UnitType.Discrete, "unitcode", Guid.NewGuid());
             RedModbus redModbus = new RedModbus(Guid.NewGuid());
             Sample sample = new Sample(2.2, DateTime.Now);
-            
-            
 
-            // ***************Almacenando entidades en BD.
+            
+            //Almacenando entidades en BD.
             context.Variables.Add(analogicVariable);
             context.Variables.Add(digitalVariable);
             context.Devices.Add(modbusMaster);
@@ -55,8 +56,32 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
             // Es necesario guardar los cambios para que se actualice la BD.
             context.SaveChanges();
 
-           
+            // Actualizando base de datos.
+            sample.Variable = analogicVariable;
+            context.Samples.Update(sample);
+            context.SaveChanges();
 
+            //Obteniendo entidades relacionadas con muestras(samples).
+
+            Variable? variableFromSample = context.Set<AnalogicVariable>().FirstOrDefault( x => x.Id == sample.VariableId );
+
+            if (variableFromSample is null)
+                Console.WriteLine("Variable no encontrada");
+            else
+                Console.WriteLine($"La muestra es de la variable {variableFromSample.Name}");
+                    
+
+            //Eliminando entidades de la base de datos.
+
+            context.Variables.Remove(analogicVariable);
+            context.SaveChanges();
+
+            AnalogicVariable? deletedAnalogicVariable = context.Set<AnalogicVariable>().FirstOrDefault( x => x.Id == analogicVariable.Id);
+            if (deletedAnalogicVariable is null)
+                Console.WriteLine("Variable eliminada con exito");
+
+            */
+            
         }
     }
 }

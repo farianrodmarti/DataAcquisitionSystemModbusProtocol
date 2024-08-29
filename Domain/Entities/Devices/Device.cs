@@ -37,7 +37,7 @@ namespace Domain.Entities.Devices
         /// </summary>
         /// <param name="iP">Direccion IP del dispsitivo.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected Device(string iP, Guid id) : base(id)
+        protected Device(Guid id, string iP) : base(id)
         {
             IP = iP ?? throw new ArgumentNullException(nameof(iP));
         }

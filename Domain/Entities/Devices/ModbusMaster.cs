@@ -21,7 +21,7 @@ namespace Domain.Entities.Devices
         /// </summary>
         /// <param name="iP">Direccio IP del dispositivo maestro Modbus</param>
         #region Constructors
-        public ModbusMaster(string iP, Guid id) : base(iP, id){ }
+        public ModbusMaster(Guid id, string iP) : base(id, iP){ }
 
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.

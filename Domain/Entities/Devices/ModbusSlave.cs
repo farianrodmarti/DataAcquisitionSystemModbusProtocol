@@ -31,7 +31,7 @@ namespace Domain.Entities.Devices
         /// Crea un esclavo Modbus
         /// </summary>
         /// <param name="iP">Direccion IP del dispositivo esclavo Modbus</param>
-        public ModbusSlave(string iP, Guid id) : base(iP, id){}
+        public ModbusSlave(Guid id, string iP) : base(id, iP){}
 
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
