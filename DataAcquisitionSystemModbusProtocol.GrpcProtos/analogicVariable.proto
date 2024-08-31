@@ -26,9 +26,7 @@ message AnalogicVaraibleDTO
 	string code = 3;
 	google.protobuf.Timestamp samplingPeriod = 4;
 	string sodbusProtocolDirection = 5;
-	//repeated SampleDTO samples = 6 o Samples samples = 6;
-	// unit virtual
-	// modbusSlave virtual
+	Samples samples = 6;
 }
 
 message AnalogicVaraibles 

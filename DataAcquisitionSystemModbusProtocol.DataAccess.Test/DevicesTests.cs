@@ -2,7 +2,7 @@
 using DataAcquisitionSystemModbusProtocol.Contracts.Devices;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context;
-using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Devies;
+using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Devices;
 using DataAcquisitionSystemModbusProtocol.DataAccess.Test.Utilities;
 using Domain.Entities.Type;
 using Domain.Entities.Devices;

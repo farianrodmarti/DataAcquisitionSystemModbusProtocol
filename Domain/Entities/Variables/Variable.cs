@@ -45,7 +45,7 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// ID de la unidad a la que pertenece la variable.
         /// </summary>
-        public Guid UnitId { get; set; }
+        public int UnitId { get; set; }
         /// <summary>
         /// Unidad a la que pertenece la variable.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// ID del esclavo Modbus que publica las variables.
         /// </summary>
-        public Guid ModbusSlaveId { get; set; }
+        public int ModbusSlaveId { get; set; }
 
         #endregion
 

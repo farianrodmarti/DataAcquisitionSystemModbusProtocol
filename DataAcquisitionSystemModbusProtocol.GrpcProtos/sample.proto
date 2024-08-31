@@ -21,7 +21,7 @@ message SampleDTO
 {
 	double sampleValue = 1;
 	google.protobuf.Timestamp sampleDateTime = 2;
-	//variable
+	Variable variable = 3;
 }
 
 message Samples
@@ -35,6 +35,15 @@ message NullableSampleDTO
 	{
 		google.protobuf.NullValue null = 1;
 		SampleDTO sample = 2;
+	}
+}
+
+message Variable
+{
+	oneof kind
+	{
+		AnalogicVariableDTO analogicVariable = 1;
+		DigitalVariableDTO digitalVariable = 2;
 	}
 }
 

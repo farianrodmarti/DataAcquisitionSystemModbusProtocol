@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Devies
+namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Devices
 {
     public class DeviceRepository : RepositoryBase, IDeviceRepository
     {
