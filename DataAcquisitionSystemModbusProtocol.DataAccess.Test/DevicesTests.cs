@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 //using CarDealer.Domain.Abstract;
 //using CarDealer.Domain.Types;
@@ -32,6 +33,10 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Test
         public DevicesTests()
         {
             ApplicationContext context = new ApplicationContext(ConnectionStringProvider.GetConnectionString());
+
+            if (!context.Database.CanConnect())
+                context.Database.Migrate();
+
             _deviceRepository = new DeviceRepository(context);
             _unitOfWork = new UnitOfWork(context);
         }

@@ -26,7 +26,7 @@ namespace Domain.Entities.Variables
         /// <param name="name"></param>
         /// <param name="variableType"></param>
         /// <param name="code"></param>
-        public DigitalVariable(string name, VariableType variableType, string code, Guid id) : base(name, variableType, code, id)
+        public DigitalVariable(Guid id, string name, VariableType variableType, string code) : base(id, name, variableType, code)
         {
         }
 

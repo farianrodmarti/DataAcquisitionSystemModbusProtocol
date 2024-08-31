@@ -1,0 +1,54 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "DataAcquisitionSystemModbusProtocol.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+import "google/protobuf/timestamp.proto";
+
+service DigitalVaraible
+{
+	rpc CreateDigitalVaraible (CreateDigitalVaraibleRequest) returns (DigitalVaraibleDTO);
+	rpc GetDigitalVariable (GetRequest) returns (NullableDigitalVariable);
+	rpc GetAllDigitalVariables (google.protobuf.empty) returns (DigitalVariables);
+	rpc UpdateDigitalVariable (DigitalVaraibleDTO) returns (google.protobuf.empty);
+	rpc DeleteDigitalVariable (DeleteRequest) returns (google.protobuf.empty);
+}
+
+message DigitalVaraibleDTO
+{
+	string name = 1;
+	VariableType variableType = 2;
+	string code = 3;
+	google.protobuf.Timestamp samplingPeriod = 4;
+	string modbusProtocolDirection = 5;
+	//repeated SampleDTO samples = 6 o Samples samples = 6;
+	// unit virtual
+	// modbusSlave virtual
+}
+
+message DigitalVaraibles
+{
+	repeated DigitalVaraibleDTO items = 1;
+}
+
+message NullableDigitalVariableDTO
+{
+	oneof kind
+	{
+		google.protobuf.NullValue null = 1;
+		DigitalVaraibleDTO digitalVaraible = 2;
+	}
+}
+
+
+message CreateDigitalVaraibleRequest
+{
+	string name = 1;
+	VariableType variableType = 2;
+	string code = 3;
+}

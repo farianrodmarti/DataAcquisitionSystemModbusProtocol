@@ -70,7 +70,7 @@ namespace Domain.Entities.Variables
         /// <param name="variableType">Tipo de variable.</param>
         /// <param name="code">Codigo de la variable que se muestra en los PI&D.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Variable(string name, VariableType variableType, string code, Guid id) : base(id)
+        public Variable(Guid id, string name, VariableType variableType, string code) : base(id)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;

@@ -1,0 +1,45 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "DataAcquisitionSystemModbusProtocol.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+
+service Sample
+{
+	rpc CreateSample (CreateSampleRequest) returns (SampleDTO);
+	rpc GetAllSamples (google.protobuf.empty) returns (Samples);
+	rpc UpdateSample (SampleDTO) returns (google.protobuf.empty);
+	rpc DeleteSample (DeleteRequest) returns (google.protobuf.empty);
+}
+
+message SampleDTO
+{
+	double sampleValue = 1;
+	google.protobuf.Timestamp sampleDateTime = 2;
+	//variable
+}
+
+message Samples
+{
+	repeated SampleDTO items = 1;
+}
+
+message NullableSampleDTO
+{
+	oneof kind
+	{
+		google.protobuf.NullValue null = 1;
+		SampleDTO sample = 2;
+	}
+}
+
+message CreateSampleRequest
+{
+	double sampleValue = 1;
+	google.protobuf.Timestamp dataTime = 2;
+}

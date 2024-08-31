@@ -1,0 +1,56 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "DataAcquisitionSystemModbusProtocol.GrpcProtos";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "common.proto";
+import "google/protobuf/timestamp.proto";
+
+service AnalogicVaraible
+{
+	rpc CreateAnalogicVaraible (CreateAnalogicVaraibleRequest) returns (AnalogicVaraibleDTO);
+	rpc GetAnalogicVariable (GetRequest) returns (NullableAnalogicVariable);
+	rpc GetAllAnalogicVariables (google.protobuf.empty) returns (AnalogicVariables);
+	rpc UpdateAnalogicVariable (AnalogicVaraibleDTO) returns (google.protobuf.empty);
+	rpc DeleteAnalogicVariable (DeleteRequest) returns (google.protobuf.empty);
+}
+
+message AnalogicVaraibleDTO
+{
+	string name = 1;
+	VariableType variableType = 2;
+	string code = 3;
+	google.protobuf.Timestamp samplingPeriod = 4;
+	string sodbusProtocolDirection = 5;
+	//repeated SampleDTO samples = 6 o Samples samples = 6;
+	// unit virtual
+	// modbusSlave virtual
+}
+
+message AnalogicVaraibles 
+{
+	repeated AnalogicVaraibleDTO items = 1;
+}
+
+message NullableAnalogicVariableDTO
+{
+	oneof kind
+	{
+		google.protobuf.NullValue null = 1;
+		AnalogicVaraibleDTO analogicVaraible = 2;
+	}
+}
+
+
+message CreateAnalogicVaraibleRequest
+{
+	string name = 1;
+	VariableType variableType = 2;
+	string code = 3;
+}
+
+

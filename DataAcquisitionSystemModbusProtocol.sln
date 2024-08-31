@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAcquisitionSystemModbus
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAcquisitionSystemModbusProtocol.Contracts", "DataAcquisitionSystemModbusProtocol.Contracts\DataAcquisitionSystemModbusProtocol.Contracts.csproj", "{85CC5793-978C-4810-9F28-1F42AF8387C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcquisitionSystemModbusProtocol.DataAccess.Test", "DataAcquisitionSystemModbusProtocol.DataAccess.Test\DataAcquisitionSystemModbusProtocol.DataAccess.Test.csproj", "{24DA7CEF-8CB0-437A-897C-9E0C4EA827AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAcquisitionSystemModbusProtocol.DataAccess.Test", "DataAcquisitionSystemModbusProtocol.DataAccess.Test\DataAcquisitionSystemModbusProtocol.DataAccess.Test.csproj", "{24DA7CEF-8CB0-437A-897C-9E0C4EA827AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService1", "GrpcService1\GrpcService1.csproj", "{AA9528E4-D248-43E8-B812-FAC98214D080}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcquisitionSystemModbusProtocol.GrpcProtos", "DataAcquisitionSystemModbusProtocol.GrpcProtos\DataAcquisitionSystemModbusProtocol.GrpcProtos.csproj", "{213E707E-9F6E-427B-AEAE-EBA2A4DC5746}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{24DA7CEF-8CB0-437A-897C-9E0C4EA827AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24DA7CEF-8CB0-437A-897C-9E0C4EA827AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24DA7CEF-8CB0-437A-897C-9E0C4EA827AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA9528E4-D248-43E8-B812-FAC98214D080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9528E4-D248-43E8-B812-FAC98214D080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9528E4-D248-43E8-B812-FAC98214D080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9528E4-D248-43E8-B812-FAC98214D080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213E707E-9F6E-427B-AEAE-EBA2A4DC5746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213E707E-9F6E-427B-AEAE-EBA2A4DC5746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213E707E-9F6E-427B-AEAE-EBA2A4DC5746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213E707E-9F6E-427B-AEAE-EBA2A4DC5746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

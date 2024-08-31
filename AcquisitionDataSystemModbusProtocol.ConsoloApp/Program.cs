@@ -13,8 +13,7 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            /*
-             * 
+            
             Console.WriteLine("Iniciando base de datos");
 
             //Borrando BD en caso de existir una antigua,
@@ -33,16 +32,18 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
             if (!context.Database.CanConnect())
                 context.Database.Migrate();
 
+            
+
             // Creando entidades para probar BD.
-            ModbusMaster modbusMaster = new ModbusMaster("maestro", Guid.NewGuid());
-            ModbusSlave modbusSlave = new ModbusSlave("esclavo", Guid.NewGuid());
-            AnalogicVariable analogicVariable = new AnalogicVariable("variable analogica", VariableType.ControlAction, "analogiccode", Guid.NewGuid());
-            DigitalVariable digitalVariable = new DigitalVariable("variable digital", VariableType.MeasurementValue, "digitalcode", Guid.NewGuid());
+            ModbusMaster modbusMaster = new ModbusMaster(Guid.NewGuid(), "maestro");
+            ModbusSlave modbusSlave = new ModbusSlave(Guid.NewGuid(), "esclavo");
+            AnalogicVariable analogicVariable = new AnalogicVariable(Guid.NewGuid(), "variable analogica", VariableType.ControlAction, "analogiccode");
+            DigitalVariable digitalVariable = new DigitalVariable(Guid.NewGuid(), "variable digital", VariableType.MeasurementValue, "digitalcode");
             Unit unit = new Unit(UnitType.Discrete, "unitcode", Guid.NewGuid());
             RedModbus redModbus = new RedModbus(Guid.NewGuid());
             Sample sample = new Sample(2.2, DateTime.Now);
 
-            
+
             //Almacenando entidades en BD.
             context.Variables.Add(analogicVariable);
             context.Variables.Add(digitalVariable);
@@ -55,6 +56,7 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
 
             // Es necesario guardar los cambios para que se actualice la BD.
             context.SaveChanges();
+
 
             // Actualizando base de datos.
             sample.Variable = analogicVariable;
@@ -80,8 +82,7 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
             if (deletedAnalogicVariable is null)
                 Console.WriteLine("Variable eliminada con exito");
 
-            */
-            
+          
         }
     }
 }

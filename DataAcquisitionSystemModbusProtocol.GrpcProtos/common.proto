@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "DataAcquisitionSystemModbusProtocol.GrpcProtos";
+
+package GrpcProtos;
+
+message GetRequest
+{
+	string id = 1;
+}
+
+message DeleteRequest
+{
+	string id = 1;
+}
+
+enum VariableType
+{
+	MeasurementValue = 0;
+	ControlAction = 1;
+}
+
