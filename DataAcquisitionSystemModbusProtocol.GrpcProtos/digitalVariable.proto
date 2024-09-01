@@ -9,29 +9,30 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "common.proto";
 import "google/protobuf/timestamp.proto";
+//import "sample.proto";
 
-service DigitalVaraible
+service DigitalVariable
 {
-	rpc CreateDigitalVaraible (CreateDigitalVaraibleRequest) returns (DigitalVaraibleDTO);
-	rpc GetDigitalVariable (GetRequest) returns (NullableDigitalVariable);
-	rpc GetAllDigitalVariables (google.protobuf.empty) returns (DigitalVariables);
-	rpc UpdateDigitalVariable (DigitalVaraibleDTO) returns (google.protobuf.empty);
-	rpc DeleteDigitalVariable (DeleteRequest) returns (google.protobuf.empty);
+	rpc CreateDigitalVariable (CreateDigitalVariableRequest) returns (DigitalVariableDTO);
+	rpc GetDigitalVariable (GetRequest) returns (NullableDigitalVariableDTO);
+	rpc GetAllDigitalVariables (google.protobuf.Empty) returns (DigitalVariables);
+	rpc UpdateDigitalVariable (DigitalVariableDTO) returns (google.protobuf.Empty);
+	rpc DeleteDigitalVariable (DeleteRequest) returns (google.protobuf.Empty);
 }
 
-message DigitalVaraibleDTO
+message DigitalVariableDTO
 {
 	string name = 1;
 	VariableType variableType = 2;
 	string code = 3;
 	google.protobuf.Timestamp samplingPeriod = 4;
 	string modbusProtocolDirection = 5;
-	Samples samples = 6;
+	//Samples samples = 6;
 }
 
-message DigitalVaraibles
+message DigitalVariables
 {
-	repeated DigitalVaraibleDTO items = 1;
+	repeated DigitalVariableDTO items = 1;
 }
 
 message NullableDigitalVariableDTO
@@ -39,12 +40,12 @@ message NullableDigitalVariableDTO
 	oneof kind
 	{
 		google.protobuf.NullValue null = 1;
-		DigitalVaraibleDTO digitalVaraible = 2;
+		DigitalVariableDTO digitalVariable = 2;
 	}
 }
 
 
-message CreateDigitalVaraibleRequest
+message CreateDigitalVariableRequest
 {
 	string name = 1;
 	VariableType variableType = 2;

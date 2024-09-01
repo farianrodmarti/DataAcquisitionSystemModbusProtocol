@@ -6,9 +6,25 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+	<ItemGroup>
+		<Protobuf Include="*.proto" GrpcServices="Both" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="sample.proto" />
+		<None Remove="analogicVariable.proto" />
+		<None Remove="digitalVariable.proto" />
+	</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.27.2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.63.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAcquisitionSystemModbusProtocol.Contracts\DataAcquisitionSystemModbusProtocol.Contracts.csproj" />
+    <ProjectReference Include="..\DataAcquisitionSystemModbusProtocol.DataAccess\DataAcquisitionSystemModbusProtocol.DataAccess.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,13 +8,16 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "common.proto";
+import "google/protobuf/timestamp.proto";
+import "analogicVariable.proto";
+import "digitalVariable.proto";
 
 service Sample
 {
 	rpc CreateSample (CreateSampleRequest) returns (SampleDTO);
-	rpc GetAllSamples (google.protobuf.empty) returns (Samples);
-	rpc UpdateSample (SampleDTO) returns (google.protobuf.empty);
-	rpc DeleteSample (DeleteRequest) returns (google.protobuf.empty);
+	rpc GetAllSamples (google.protobuf.Empty) returns (Samples);
+	rpc UpdateSample (SampleDTO) returns (google.protobuf.Empty);
+	rpc DeleteSample (DeleteRequest) returns (google.protobuf.Empty);
 }
 
 message SampleDTO
