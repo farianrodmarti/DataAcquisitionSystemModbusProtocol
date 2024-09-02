@@ -53,5 +53,5 @@ message Variable
 message CreateSampleRequest
 {
 	double sampleValue = 1;
-	google.protobuf.Timestamp dataTime = 2;
+	google.protobuf.Timestamp sampledataTime = 2;
 }

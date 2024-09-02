@@ -42,6 +42,12 @@ namespace Domain.Entities.Samples
             SampleDateTime = sampleDateTime;
         }
 
+        public Sample(Guid id, double sampleValue, DateTime sampleDateTime) :base(id)
+        {
+            SampleValue = sampleValue;
+            SampleDateTime = sampleDateTime;
+        }
+
         /// <summary>
         /// Requerido por EntityFrameworkCore para migraciones.
         /// </summary>
