@@ -11,7 +11,8 @@ namespace GrpcService1.Mappers
                .ForMember(t => t.Name, o => o.MapFrom(s => s.Name))
                .ForMember(t => t.VariableType, o => o.MapFrom(s => (DataAcquisitionSystemModbusProtocol.GrpcProtos.VariableType)s.VariableType))
                .ForMember(t => t.Code, o => o.MapFrom(s => s.Code))
-               .ForMember(t => t.SamplingPeriod, o => o.MapFrom(s => s.SamplingPeriod));
+               .ForMember(t => t.SamplingPeriod, o => o.MapFrom(s => s.SamplingPeriod))
+               .ForMember(t => t.ModbusProtocolDirection, o => o.MapFrom(s => s.ModbusProtocolDirection));
 
 
 
@@ -21,7 +22,8 @@ namespace GrpcService1.Mappers
                .ForMember(t => t.Name, o => o.MapFrom(s => s.Name))
                .ForMember(t => t.VariableType, o => o.MapFrom(s => s.VariableType))
                .ForMember(t => t.Code, o => o.MapFrom(s => s.Code))
-               .ForMember(t => t.SamplingPeriod, o => o.MapFrom(s => s.SamplingPeriod));
+               .ForMember(t => t.SamplingPeriod, o => o.MapFrom(s => s.SamplingPeriod))
+               .ForMember(t => t.ModbusProtocolDirection, o => o.MapFrom(s => s.ModbusProtocolDirection));
         }
     }
 }

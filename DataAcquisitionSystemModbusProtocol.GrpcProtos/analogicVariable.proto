@@ -27,7 +27,7 @@ message AnalogicVariableDTO
 	VariableType variableType = 3;
 	string code = 4;
 	google.protobuf.Timestamp samplingPeriod = 5;
-	string sodbusProtocolDirection = 6;
+	string modbusProtocolDirection = 6;
 	//Samples samples = 6;
 }
 

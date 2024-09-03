@@ -36,5 +36,12 @@ namespace DataAcquisitionSystemModbusProtocol.Contracts.Samples
         /// </summary>
         /// <param name="sample">Muestra a eliminar.</param>
         void DeleteSample(Sample sample);
+
+        /// <summary>
+        /// Obtiene una muestra del soporte de datos a partir de su identificador.
+        /// </summary>
+        /// <param name="id">Identificador de la muestra</param>
+        /// <returns></returns>
+        Sample GetSampleById(Guid id);
     }
 }

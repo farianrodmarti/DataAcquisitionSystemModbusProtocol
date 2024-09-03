@@ -15,9 +15,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-//using CarDealer.Domain.Abstract;
-//using CarDealer.Domain.Types;
-//using CarDealer.Domain.ValueObjects;
 
 namespace DataAcquisitionSystemModbusProtocol.DataAccess.Test
 {

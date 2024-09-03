@@ -33,5 +33,10 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories
         {
             _context.Samples.Update(sample);
         }
+
+        public Sample GetSampleById(Guid id)
+        {
+            return _context.Set<Sample>().FirstOrDefault(i => i.Id == id);
+        }
     }
 }
