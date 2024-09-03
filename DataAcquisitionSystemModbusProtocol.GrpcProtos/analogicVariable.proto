@@ -22,11 +22,12 @@ service AnalogicVariable
 
 message AnalogicVariableDTO
 {
-	string name = 1;
-	VariableType variableType = 2;
-	string code = 3;
-	google.protobuf.Timestamp samplingPeriod = 4;
-	string sodbusProtocolDirection = 5;
+	string id = 1;
+	string name = 2;
+	VariableType variableType = 3;
+	string code = 4;
+	google.protobuf.Timestamp samplingPeriod = 5;
+	string sodbusProtocolDirection = 6;
 	//Samples samples = 6;
 }
 

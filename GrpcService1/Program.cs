@@ -1,3 +1,4 @@
+using DataAcquisitionSystemModbusProtocol.Application;
 using DataAcquisitionSystemModbusProtocol.Contracts;
 using DataAcquisitionSystemModbusProtocol.Contracts.Devices;
 using DataAcquisitionSystemModbusProtocol.Contracts.RedModbuss;
@@ -26,6 +27,12 @@ namespace GrpcService1
 
             // Add services to the container.
             builder.Services.AddGrpc();
+            builder.Services.AddAutoMapper(typeof(Program).Assembly);
+            builder.Services.AddMediatR(new MediatRServiceConfiguration()
+            {
+                AutoRegisterRequestProcessors = true,
+            }
+            .RegisterServicesFromAssemblies(typeof(AssemblyReference).Assembly));
 
             builder.Services.AddSingleton("Data Source=Data.sqlite");
             builder.Services.AddScoped<ApplicationContext>();

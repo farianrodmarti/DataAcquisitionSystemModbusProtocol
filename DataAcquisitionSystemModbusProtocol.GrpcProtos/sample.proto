@@ -22,9 +22,10 @@ service Sample
 
 message SampleDTO
 {
-	double sampleValue = 1;
-	google.protobuf.Timestamp sampleDateTime = 2;
-	Variable variable = 3;
+	string id = 1;
+	double sampleValue = 2;
+	google.protobuf.Timestamp sampleDateTime = 3;
+	Variable variable = 4;
 }
 
 message Samples
@@ -53,5 +54,5 @@ message Variable
 message CreateSampleRequest
 {
 	double sampleValue = 1;
-	google.protobuf.Timestamp sampledataTime = 2;
+	google.protobuf.Timestamp sampleDateTime = 2;
 }
