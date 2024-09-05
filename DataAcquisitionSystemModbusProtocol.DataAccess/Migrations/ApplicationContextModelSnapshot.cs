@@ -17,48 +17,23 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.27");
 
-            modelBuilder.Entity("Domain.Entities.Devices.Device", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Devices", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.RedModbuss.RedModbus", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("ModbusMasterId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ModbusMasterId")
-                        .IsUnique();
-
-                    b.ToTable("RedModbus", (string)null);
-                });
-
             modelBuilder.Entity("Domain.Entities.Samples.Sample", b =>
                 {
-                    b.Property<Guid>("VariableId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("SampleDateTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("VariableId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("VariableId", "SampleDateTime");
+                    b.HasKey("Id");
 
-                    b.ToTable("Sample", (string)null);
+                    b.HasIndex("VariableId");
+
+                    b.ToTable("Samples", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Units.Unit", b =>
@@ -68,7 +43,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("AreaName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Code")
@@ -76,7 +50,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ManufacturerName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("UnitType")
@@ -84,7 +57,7 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Unit", (string)null);
+                    b.ToTable("Units", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Variables.Variable", b =>
@@ -98,9 +71,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ModbusProtocolDirection")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("ModbusSlaveId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -118,30 +88,9 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ModbusSlaveId");
-
                     b.HasIndex("UnitId");
 
                     b.ToTable("Variables", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.Devices.ModbusMaster", b =>
-                {
-                    b.HasBaseType("Domain.Entities.Devices.Device");
-
-                    b.ToTable("ModbusMasters", (string)null);
-                });
-
-            modelBuilder.Entity("Domain.Entities.Devices.ModbusSlave", b =>
-                {
-                    b.HasBaseType("Domain.Entities.Devices.Device");
-
-                    b.Property<Guid>("RedModbusId")
-                        .HasColumnType("TEXT");
-
-                    b.HasIndex("RedModbusId");
-
-                    b.ToTable("ModbusSlaves", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Variables.AnalogicVariable", b =>
@@ -158,17 +107,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                     b.ToTable("DigitalVariables", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.RedModbuss.RedModbus", b =>
-                {
-                    b.HasOne("Domain.Entities.Devices.ModbusMaster", "ModbusMasterRed")
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.RedModbuss.RedModbus", "ModbusMasterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ModbusMasterRed");
-                });
-
             modelBuilder.Entity("Domain.Entities.Samples.Sample", b =>
                 {
                     b.HasOne("Domain.Entities.Variables.Variable", "Variable")
@@ -182,47 +120,13 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Entities.Variables.Variable", b =>
                 {
-                    b.HasOne("Domain.Entities.Devices.ModbusSlave", "ModbusSlave")
-                        .WithMany("Variables")
-                        .HasForeignKey("ModbusSlaveId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Units.Unit", "Unit")
                         .WithMany("Variables")
                         .HasForeignKey("UnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ModbusSlave");
-
                     b.Navigation("Unit");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Devices.ModbusMaster", b =>
-                {
-                    b.HasOne("Domain.Entities.Devices.Device", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Devices.ModbusMaster", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Entities.Devices.ModbusSlave", b =>
-                {
-                    b.HasOne("Domain.Entities.Devices.Device", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Devices.ModbusSlave", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Entities.RedModbuss.RedModbus", "RedModbus")
-                        .WithMany()
-                        .HasForeignKey("RedModbusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RedModbus");
                 });
 
             modelBuilder.Entity("Domain.Entities.Variables.AnalogicVariable", b =>
@@ -251,11 +155,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
             modelBuilder.Entity("Domain.Entities.Variables.Variable", b =>
                 {
                     b.Navigation("Samples");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Devices.ModbusSlave", b =>
-                {
-                    b.Navigation("Variables");
                 });
 #pragma warning restore 612, 618
         }

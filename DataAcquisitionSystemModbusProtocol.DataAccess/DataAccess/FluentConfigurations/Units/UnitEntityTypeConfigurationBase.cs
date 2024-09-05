@@ -15,8 +15,35 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public override void Configure(EntityTypeBuilder<Unit> builder)
         {
-            builder.ToTable("Unit");
-            base.Configure(builder);
+            //builder.ToTable("Unit");
+            //base.Configure(builder);
+            //// Relación 1:N con Variable
+            //builder.HasMany(u => u.Variables)
+            //   .WithOne(v => v.Unit)
+            //   .HasForeignKey(v => v.UnitId);
+
+            builder.ToTable("Units");
+            builder.HasKey(u => u.Id);
+
+            // Relación 1:N con Variable
+            builder.HasMany(u => u.Variables)
+                   .WithOne(v => v.Unit)
+                   .HasForeignKey(v => v.UnitId);
         }
     }
 }
+
+
+//public class UnitEntityTypeConfiguration : IEntityTypeConfiguration<Unit>
+//{
+//    public void Configure(EntityTypeBuilder<Unit> builder)
+//    {
+//        builder.ToTable("Units");
+//        builder.HasKey(u => u.Id);
+
+//        // Relación 1:N con Variable
+//        builder.HasMany(u => u.Variables)
+//               .WithOne(v => v.Unit)
+//               .HasForeignKey(v => v.UnitId);
+//    }
+//}

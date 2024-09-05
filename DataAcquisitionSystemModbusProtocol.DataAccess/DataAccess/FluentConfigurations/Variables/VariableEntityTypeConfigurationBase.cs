@@ -14,11 +14,36 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public override void Configure(EntityTypeBuilder<Variable> builder)
         {
+            //builder.ToTable("Variables");
+            //base.Configure(builder);
+            ////builder.HasOne(x => x.Unit).WithMany(m => m.Variables).HasForeignKey(x => x.UnitId);
+            ////builder.HasOne(x => x.ModbusSlave).WithMany(m => m.Variables).HasForeignKey(x => x.ModbusSlaveId);
+            //// Relación 1:N con Sample
+            //builder.HasMany(v => v.Samples)
+            //       .WithOne(s => s.Variable)
+            //       .HasForeignKey(s => s.VariableId);
+
             builder.ToTable("Variables");
-            base.Configure(builder);
-            builder.HasOne(x => x.Unit).WithMany(m => m.Variables).HasForeignKey(x => x.UnitId);
-            builder.HasOne(x => x.ModbusSlave).WithMany(m => m.Variables).HasForeignKey(x => x.ModbusSlaveId);
+            builder.HasKey(v => v.Id);
+
+            // Relación 1:N con Sample
+            builder.HasMany(v => v.Samples)
+                   .WithOne(s => s.Variable)
+                   .HasForeignKey(s => s.VariableId);
         }
     }
 }
 
+//public class VariableEntityTypeConfiguration : IEntityTypeConfiguration<Variable>
+//{
+//    public void Configure(EntityTypeBuilder<Variable> builder)
+//    {
+//        builder.ToTable("Variables");
+//        builder.HasKey(v => v.Id);
+
+//        // Relación 1:N con Sample
+//        builder.HasMany(v => v.Samples)
+//               .WithOne(s => s.Variable)
+//               .HasForeignKey(s => s.VariableId);
+//    }
+//}

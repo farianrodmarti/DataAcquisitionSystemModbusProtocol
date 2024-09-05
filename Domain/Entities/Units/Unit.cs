@@ -27,7 +27,7 @@ namespace Domain.Entities.Units
         /// <summary>
         /// Nombre del fabricante
         /// </summary>
-        public string ManufacturerName { get; set; }
+        public string? ManufacturerName { get; set; }
         /// <summary>
         /// Codigo de la unidad
         /// </summary>
@@ -35,7 +35,7 @@ namespace Domain.Entities.Units
         /// <summary>
         /// Nombre del area de la unidad
         /// </summary>
-        public string AreaName { get; set; }
+        public string? AreaName { get; set; }
 
         #endregion
 
@@ -46,10 +46,12 @@ namespace Domain.Entities.Units
         /// <param name="unitType">Tipo de unidad</param>
         /// <param name="code">Codigo de la unidad</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public Unit(UnitType unitType, string code, Guid id) : base(id)
+        public Unit(Guid id, UnitType unitType, string code) : base(id)
         {
             UnitType = unitType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
+            ManufacturerName = String.Empty;
+            AreaName = String.Empty;
         }
 
         /// <summary>

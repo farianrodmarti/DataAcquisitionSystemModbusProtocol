@@ -1,15 +1,15 @@
 using DataAcquisitionSystemModbusProtocol.Application;
 using DataAcquisitionSystemModbusProtocol.Contracts;
-using DataAcquisitionSystemModbusProtocol.Contracts.Devices;
-using DataAcquisitionSystemModbusProtocol.Contracts.RedModbuss;
+//using DataAcquisitionSystemModbusProtocol.Contracts.Devices;
+//using DataAcquisitionSystemModbusProtocol.Contracts.RedModbuss;
 using DataAcquisitionSystemModbusProtocol.Contracts.Samples;
 using DataAcquisitionSystemModbusProtocol.Contracts.Units;
 using DataAcquisitionSystemModbusProtocol.Contracts.Variables;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Context;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories;
-using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Devices;
-using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.RedModbuss;
+//using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Devices;
+//using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.RedModbuss;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Samples;
 using DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.Repositories.Units;
 using GrpcService1.Services;
@@ -37,10 +37,10 @@ namespace GrpcService1
             builder.Services.AddSingleton("Data Source=Data.sqlite");
             builder.Services.AddScoped<ApplicationContext>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
+            //builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
             builder.Services.AddScoped<ISampleRepository, SampleRepository>();
             builder.Services.AddScoped<IVariableRepository, VariableRepository>();
-            builder.Services.AddScoped<IRedModbusRepository, RedModbussRepository>();
+            //builder.Services.AddScoped<IRedModbusRepository, RedModbussRepository>();
             builder.Services.AddScoped<IUnitRepository, UnitRepository>();
 
 

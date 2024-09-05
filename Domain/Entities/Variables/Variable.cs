@@ -49,15 +49,15 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// Unidad a la que pertenece la variable.
         /// </summary>
-        public virtual Unit Unit { get; set; }
+        public Unit Unit { get; set; }
         /// <summary>
         /// Esclavo que publica la variable.
         /// </summary>
-        public ModbusSlave ModbusSlave { get; set; }
+        //public ModbusSlave ModbusSlave { get; set; }
         /// <summary>
         /// ID del esclavo Modbus que publica las variables.
         /// </summary>
-        public Guid ModbusSlaveId { get; set; }
+        //public Guid ModbusSlaveId { get; set; }
 
         #endregion
 
@@ -76,6 +76,7 @@ namespace Domain.Entities.Variables
             VariableType = variableType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
             ModbusProtocolDirection = string.Empty;
+            SamplingPeriod = DateTime.Now;
         }
 
         /// <summary>

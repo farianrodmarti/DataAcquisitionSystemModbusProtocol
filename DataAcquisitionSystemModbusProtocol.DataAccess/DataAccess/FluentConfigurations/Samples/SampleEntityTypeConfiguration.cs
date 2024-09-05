@@ -14,10 +14,34 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.DataAccess.FluentConfig
     {
         public override void Configure(EntityTypeBuilder<Sample> builder)
         {
-            builder.ToTable("Sample");
-            base.Configure(builder);
-            builder.HasKey(nameof(Sample.VariableId), nameof(Sample.SampleDateTime));
+            //builder.ToTable("Sample");
+            //base.Configure(builder);
+            ////builder.HasKey(nameof(Sample.VariableId), nameof(Sample.SampleDateTime));
+            //// Configuración adicional si hay alguna llave compuesta
+            //// builder.HasKey(s => new { s.VariableId, s.SampleDateTime });
+            ///
+
+            builder.ToTable("Samples");
+            builder.HasKey(s => s.Id);
+
+            // Configuración adicional si hay alguna llave compuesta
+            // builder.HasKey(s => new { s.VariableId, s.SampleDateTime });
+
 
         }
     }
 }
+
+
+
+//public class SampleEntityTypeConfiguration : IEntityTypeConfiguration<Sample>
+//{
+//    public void Configure(EntityTypeBuilder<Sample> builder)
+//    {
+//        builder.ToTable("Samples");
+//        builder.HasKey(s => s.Id);
+
+//        // Configuración adicional si hay alguna llave compuesta
+//        // builder.HasKey(s => new { s.VariableId, s.SampleDateTime });
+//    }
+//}
