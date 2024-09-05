@@ -37,7 +37,7 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// Direccion de la variable en el protocolo Modbus.
         /// </summary>
-        public string ModbusProtocolDirection { get; set; }
+        public string? ModbusProtocolDirection { get; set; }
         /// <summary>
         /// Muestra de la variable.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// ID de la unidad a la que pertenece la variable.
         /// </summary>
-        public int UnitId { get; set; }
+        public Guid UnitId { get; set; }
         /// <summary>
         /// Unidad a la que pertenece la variable.
         /// </summary>
@@ -53,11 +53,11 @@ namespace Domain.Entities.Variables
         /// <summary>
         /// Esclavo que publica la variable.
         /// </summary>
-        public virtual ModbusSlave ModbusSlave { get; set; }
+        public ModbusSlave ModbusSlave { get; set; }
         /// <summary>
         /// ID del esclavo Modbus que publica las variables.
         /// </summary>
-        public int ModbusSlaveId { get; set; }
+        public Guid ModbusSlaveId { get; set; }
 
         #endregion
 
@@ -75,6 +75,7 @@ namespace Domain.Entities.Variables
             Name = name ?? throw new ArgumentNullException(nameof(name));
             VariableType = variableType;
             Code = code ?? throw new ArgumentNullException(nameof(code));
+            ModbusProtocolDirection = string.Empty;
         }
 
         /// <summary>

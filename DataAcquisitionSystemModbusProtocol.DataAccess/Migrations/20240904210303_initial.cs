@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,10 +103,9 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                     VariableType = table.Column<int>(type: "INTEGER", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
                     SamplingPeriod = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ModbusProtocolDirection = table.Column<string>(type: "TEXT", nullable: false),
+                    ModbusProtocolDirection = table.Column<string>(type: "TEXT", nullable: true),
                     UnitId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ModbusSlaveId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    ModbusSlaveId1 = table.Column<Guid>(type: "TEXT", nullable: true)
+                    ModbusSlaveId = table.Column<Guid>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -117,11 +116,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                         principalTable: "ModbusSlaves",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Variables_ModbusSlaves_ModbusSlaveId1",
-                        column: x => x.ModbusSlaveId1,
-                        principalTable: "ModbusSlaves",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Variables_Unit_UnitId",
                         column: x => x.UnitId,
@@ -198,11 +192,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                 name: "IX_Variables_ModbusSlaveId",
                 table: "Variables",
                 column: "ModbusSlaveId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Variables_ModbusSlaveId1",
-                table: "Variables",
-                column: "ModbusSlaveId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Variables_UnitId",

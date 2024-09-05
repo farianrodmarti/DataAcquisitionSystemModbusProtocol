@@ -3,6 +3,7 @@ using DataAcquisitionSystemModbusProtocol.Application.Samples.Commands.CreateSam
 using DataAcquisitionSystemModbusProtocol.Application.Samples.Commands.DeleteSample;
 using DataAcquisitionSystemModbusProtocol.Application.Samples.Commands.UpdateSample;
 using DataAcquisitionSystemModbusProtocol.Application.Samples.Queries.GetAllSamples;
+using DataAcquisitionSystemModbusProtocol.Application.Samples.Queries.GetSampleById;
 using DataAcquisitionSystemModbusProtocol.GrpcProtos;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -59,6 +60,17 @@ namespace GrpcService1.Services
             _mediator.Send(command);
 
             return Task.FromResult(new Empty());
+        }
+
+        public override Task<NullableSampleDTO> GetSample(GetRequest request, ServerCallContext context)
+        {
+            var query = new GetSampleByIdQuery(new Guid(request.Id));
+
+            var result = _mediator.Send(query).Result;
+
+            if (result is null)
+                return Task.FromResult(new NullableSampleDTO() { Null = NullValue.NullValue });
+            return Task.FromResult(new NullableSampleDTO() { Sample = _mapper.Map<SampleDTO>(result) });
         }
     }
 

@@ -15,6 +15,7 @@ import "digitalVariable.proto";
 service Sample
 {
 	rpc CreateSample (CreateSampleRequest) returns (SampleDTO);
+	rpc GetSample (GetRequest) returns (NullableSampleDTO);
 	rpc GetAllSamples (google.protobuf.Empty) returns (Samples);
 	rpc UpdateSample (SampleDTO) returns (google.protobuf.Empty);
 	rpc DeleteSample (DeleteRequest) returns (google.protobuf.Empty);

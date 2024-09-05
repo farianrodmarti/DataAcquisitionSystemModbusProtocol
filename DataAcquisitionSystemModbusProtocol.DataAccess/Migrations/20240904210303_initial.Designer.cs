@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240718081413_Initial")]
-    partial class Initial
+    [Migration("20240904210303_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,13 +100,9 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ModbusProtocolDirection")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("ModbusSlaveId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("ModbusSlaveId1")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -125,8 +121,6 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ModbusSlaveId");
-
-                    b.HasIndex("ModbusSlaveId1");
 
                     b.HasIndex("UnitId");
 
@@ -191,17 +185,13 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
             modelBuilder.Entity("Domain.Entities.Variables.Variable", b =>
                 {
                     b.HasOne("Domain.Entities.Devices.ModbusSlave", "ModbusSlave")
-                        .WithMany()
+                        .WithMany("Variables")
                         .HasForeignKey("ModbusSlaveId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Devices.ModbusSlave", null)
-                        .WithMany("Variables")
-                        .HasForeignKey("ModbusSlaveId1");
-
                     b.HasOne("Domain.Entities.Units.Unit", "Unit")
-                        .WithMany()
+                        .WithMany("Variables")
                         .HasForeignKey("UnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -253,6 +243,11 @@ namespace DataAcquisitionSystemModbusProtocol.DataAccess.Migrations
                         .HasForeignKey("Domain.Entities.Variables.DigitalVariable", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.Units.Unit", b =>
+                {
+                    b.Navigation("Variables");
                 });
 
             modelBuilder.Entity("Domain.Entities.Variables.Variable", b =>
