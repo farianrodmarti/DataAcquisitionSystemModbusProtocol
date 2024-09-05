@@ -59,7 +59,7 @@ namespace DataAcquisitionSystemModbusProtocol.ConsoleApp
             context.Variables.Add(analogicVariable);
             context.Variables.Add(digitalVariable);
 
-            Sample sample = new Sample(2.2, DateTime.Now)
+            Sample sample = new Sample(Guid.NewGuid() ,2.2, DateTime.Now)
             {
                 VariableId = analogicVariable.Id
             };
