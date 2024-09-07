@@ -9,7 +9,6 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/struct.proto";
 import "common.proto";
 import "google/protobuf/timestamp.proto";
-//import "sample.proto";
 
 service DigitalVariable
 {
@@ -28,7 +27,7 @@ message DigitalVariableDTO
 	string code = 4;
 	google.protobuf.Timestamp samplingPeriod = 5;
 	string modbusProtocolDirection = 6;
-	//Samples samples = 6;
+	
 }
 
 message DigitalVariables
